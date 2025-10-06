@@ -36,6 +36,15 @@ body {
     background-color: #ffffc7;
 }
 
+#reset-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #191913;
+    color: #ffff;
+    border-radius: 1rem;
+    border: none;
+}
+
 #new-game {
     padding: 1rem;
     font-size: 1.25rem;

@@ -1,4 +1,8 @@
 let boxes = document.querySelectorAll(".box");
+let resetButton = document.querySelector("#reset-btn");
+let newBtn = document.querySelector("#new-game");
+let msgContainer = document.querySelector(".msg-conatiner");
+let msg = document.querySelector("#msg");
 
 let turnX = true; //playerX, playerO
 
@@ -15,6 +19,12 @@ const winPatterns = [
     [6,7,8],
 ];
 
+const resetBtn = () => {
+    turnX = true;
+    enableBoxes();
+    msgContainer.classList.add("hide");
+}
+
 // step 3 adding event listner on buttons for turn of X & O
 boxes.forEach((box) =>{
     box.addEventListener('click', () =>{
@@ -30,6 +40,12 @@ boxes.forEach((box) =>{
         checkWinner();
     })
 });
+
+const showWinner = (winner) => {
+    msg.innerText = `Congratulations ..!! Winner is ${winner}`;
+    msgContainer.classList.remove("hide");
+    disabledBoxes();
+}
 
 
 const checkWinner = () => {
