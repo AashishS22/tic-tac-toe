@@ -1,6 +1,6 @@
 let boxes = document.querySelectorAll(".box");
 let resetButton = document.querySelector("#reset-btn");
-let newBtn = document.querySelector("#new-game");
+let newGameBtn = document.querySelector("#new-game");
 let msgContainer = document.querySelector(".msg-conatiner");
 let msg = document.querySelector("#msg");
 
@@ -19,7 +19,7 @@ const winPatterns = [
     [6,7,8],
 ];
 
-const resetBtn = () => {
+const resetGame= () => {
     turnX = true;
     enableBoxes();
     msgContainer.classList.add("hide");
@@ -72,3 +72,6 @@ const checkWinner = () => {
         }
     }
 };
+
+newGameBtn.addEventListener("click",resetGame);
+resetButton.addEventListener("click", resetGame);
