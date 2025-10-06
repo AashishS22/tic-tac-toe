@@ -23,7 +23,7 @@ const resetBtn = () => {
     turnX = true;
     enableBoxes();
     msgContainer.classList.add("hide");
-}
+};
 
 // step 3 adding event listner on buttons for turn of X & O
 boxes.forEach((box) =>{
@@ -41,11 +41,24 @@ boxes.forEach((box) =>{
     })
 });
 
+const disableBoxes = () => {
+    for (let box of boxes){
+        box.disabled = true;
+    }
+};
+
+const enableBoxes = () => {
+    for (let box of boxes){
+        box.disabled = false;
+        box.innerText = "";
+    }
+};
+
 const showWinner = (winner) => {
     msg.innerText = `Congratulations ..!! Winner is ${winner}`;
     msgContainer.classList.remove("hide");
-    disabledBoxes();
-}
+    disableBoxes();
+};
 
 
 const checkWinner = () => {
