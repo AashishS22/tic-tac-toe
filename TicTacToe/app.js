@@ -59,7 +59,9 @@ const showWinner = (winner) => {
   disableBoxes();
 };
 
+
 const checkWinner = () => {
+    let winnerFound  = false;
   for (let pattern of winPatterns) {
     let pos1Val = boxes[pattern[0]].innerText;
     let pos2Val = boxes[pattern[1]].innerText;
@@ -67,11 +69,28 @@ const checkWinner = () => {
 
     if (pos1Val != "" && pos2Val != "" && pos3Val != "") {
       if (pos1Val === pos2Val && pos2Val === pos3Val) {
+        winnerFound = true;
         showWinner(pos1Val);
+        return;
       }
+    }
+    if (!winnerFound){
+        let isDraw = true;
+        
+        for (let box of boxes){
+            if (box.innerText === ""){
+                isDraw = false; // found an empty -> not a draw
+                break;
+            }
+        }   
+        if (isDraw){
+            msg.innerText = "It's a draw!";
+            msgContainer.classList.remove("hide");
+        }
     }
   }
 };
+
 
 newGameBtn.addEventListener("click", resetGame);
 resetButton.addEventListener("click", resetGame);
